@@ -31,29 +31,30 @@ def copy_to_clipboard():
 # Initialize the GUI application
 app = tk.Tk()
 app.title("URL Shortener")
+app.configure(bg="#222222")
 
 # URL input
-tk.Label(app, text="Enter the long URL:").pack(pady=5)
-url_entry = tk.Entry(app, width=50)
+tk.Label(app, text="Enter the long URL:", font=("Arial", 14), bg="#222222", fg="#FFFFFF").pack(pady=5)
+url_entry = tk.Entry(app, font=("Arial", 14), bd=2, width=50, bg="#333333", fg="#FFFFFF", insertbackground="#FFFFFF")
 url_entry.pack(pady=5)
 
 # Service selection
 service_var = tk.StringVar(value="TinyURL")
-tk.Label(app, text="Select the shortening service:").pack(pady=5)
-tk.Radiobutton(app, text="TinyURL", variable=service_var, value="TinyURL").pack(anchor=tk.W)
-tk.Radiobutton(app, text="Bitly", variable=service_var, value="Bitly").pack(anchor=tk.W)
+tk.Label(app, text="Select the shortening service:", font=("Arial", 14), bg="#222222", fg="#FFFFFF").pack(pady=5)
+tk.Radiobutton(app, text="TinyURL", variable=service_var, value="TinyURL", font=("Arial", 12), bg="#222222", fg="#FFFFFF", selectcolor="#444444").pack(anchor=tk.W)
+tk.Radiobutton(app, text="Bitly", variable=service_var, value="Bitly", font=("Arial", 12), bg="#222222", fg="#FFFFFF", selectcolor="#444444").pack(anchor=tk.W)
 
 # Shorten button
-shorten_button = tk.Button(app, text="Shorten URL", command=shorten_url)
+shorten_button = tk.Button(app, text="Shorten URL", command=shorten_url, font=("Arial", 14), bg="#444444", fg="#FFFFFF", bd=2, relief="raised")
 shorten_button.pack(pady=20)
 
 # Result label
-result_label = tk.Label(app, text="")
+result_label = tk.Label(app, text="", font=("Arial", 14), bg="#222222", fg="#00FF00")
 result_label.pack(pady=5)
 result_label.short_url = ""  # Attribute to store the short URL
 
 # Copy button
-copy_button = tk.Button(app, text="Copy to Clipboard", command=copy_to_clipboard, state=tk.DISABLED)
+copy_button = tk.Button(app, text="Copy to Clipboard", command=copy_to_clipboard, state=tk.DISABLED, font=("Arial", 14), bg="#444444", fg="#FFFFFF", bd=2, relief="raised")
 copy_button.pack(pady=5)
 
 # Run the application
